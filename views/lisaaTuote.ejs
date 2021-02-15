@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Woocommerce / lisää tuote</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Lisää uusi tuote kauppaan</h2>
+
+        <form class="mt-5" method="POST" action="/lisaaTuote">
+            
+            <div>
+                <label class="form-label" for="nimi">Anna tuotteen nimi</label>
+                <input class="form-control" type="text" name="nimi" id="nimi" value="" placeholder="Tuotteen nimi">
+            </div>
+            <div>
+                <label class="form-label" for="nimi">Tuotteen hinta</label>
+                <input class="form-control" type="text" name="hinta" id="hinta" value="" placeholder="Anna hinta. Käytä desimaalierottimena pistettä (.)">
+            </div>
+            <div>
+                <label class="form-label" for="nimi">Tuotekuvaus</label>
+                <textarea class="form-control" type="text" name="tuotekuvaus" id="tuotekuvaus" value="" placeholder="Anna tuotekuvaus"></textarea>
+            </div>
+            <input class="btn btn-primary mt-5" type="submit" value="Lisää">
+        </form>
+    </div>
+</body>
+
+</html>

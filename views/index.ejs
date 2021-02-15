@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Woocommercen tilaukset</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Woocommercen tilaukset</h1>
+
+        <h2>Kaikki tilaukset</h2>
+
+        <% if (tilaukset) { %>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Etunimi</th>
+                    <th scope="col">Sukunimi</th>
+                    <th scope="col">Tilaussumma</th>
+                    <th scope="col">Päivä ja aika</th>
+                    <th scope="col">Tuotteet</th>
+
+                    <% tilaukset.forEach((tilaus) => { %>
+
+                    <% let pvm = new Date(tilaus.date_created).toLocaleString() %>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"><%=tilaus.id%></th>
+                    <td><%=tilaus.billing.first_name%></td>
+                    <td><%=tilaus.billing.last_name%></td>
+                    <td><%=tilaus.total%><%=tilaus.currency_symbol%></td>
+                    <td><%=pvm%></td>
+                    <td><% tilaus.line_items.forEach((tuote) => { %>
+                        <%=tuote.name%>,
+                        <% }); %></td>
+                </tr>
+            </tbody>
+            <% }); %>
+        </table>
+        <% } else {%>
+
+        <i>Ei tilauksia</i>
+
+        <% } %>
+
+        <a href="lisaaTuote/" class="btn btn-primary">Lisää uusi tuote kauppaan</a>
+
+    </div>
+</body>
+
+</html>
